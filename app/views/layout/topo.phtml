@@ -1,0 +1,62 @@
+        <!--Topo-->
+        <nav class="navbar navbar-static navbar-fixed-top navbar-pad-original">
+            <div class="container">
+                <div class="navbar-header">
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="<?php echo $this->site_url; ?>" class="navbar-brand"><?php echo $this->site_titulo; ?></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+<?php
+    if(@$_SESSION[$this->usuario_root->nome]['usuario-logado'] == true){
+        foreach ($this->links_menu as $NomeMenu => $Link) {
+?>
+                        <li><a href="<?php echo $Link; ?>"><?php echo $NomeMenu; ?></a></li>
+<?php
+        }
+?>
+                        <li class="dropdown ">
+                            <a style="cursor: pointer;" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-user"></span> <b class="glyphicon glyphicon-chevron-down"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class=""><a href="<?php echo $this->site_url('login/sair'); ?>"><span class="fa fa-arrow-right"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sair do sistema&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(logout)</a></li>
+                            </ul>
+                        </li>
+<?php
+    } else {
+?>
+                        <li><a href="<?php echo $this->site_url('login'); ?>">Login</a></li>
+<?php
+    }
+?>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Conteudo da página-->
+        <div id="conteudo">
+<?php
+//    var_dump(@$_SESSION);
+    if (@$_SESSION[$this->usuario_root->nome]['msg']['exibir'] == true){
+?>
+            <script>
+                $(document).ready(function(){
+                    alerta();
+                });
+            </script>
+            <!--Notificações-->
+            <div class="page-alerts">
+                <div id="alerta" class="alert alert-<?php echo @$_SESSION[$this->usuario_root->nome]['msg']['tipo']; ?> page-alert" style="display: none;">
+                    <button class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <strong><?php echo @$_SESSION[$this->usuario_root->nome]['msg']['titulo']; ?></strong> <?php echo @$_SESSION[$this->usuario_root->nome]['msg']['texto']; ?>
+                </div>
+            </div>
+<?php
+        $_SESSION[$this->usuario_root->nome]['msg']['exibir'] = false;
+    }
+?>
+            

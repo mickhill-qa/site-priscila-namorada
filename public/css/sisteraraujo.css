@@ -1,0 +1,223 @@
+/**
+ *   Author     : Mick Hill
+ */
+
+
+
+
+
+
+
+
+
+/* Padrão
+-------------------------------------------------- */
+
+.color1-bg, .highlight-bk, .navbar, .icon-bar{
+    /*background-color:#ff3333;*/
+    background:linear-gradient(to bottom, #ff3333, #ff1515);
+}
+.color1-text, .navbar-toggle, a, a:hover, .highlight{
+    color:#ff3333;
+}
+.color1-border, h3.highlight, .navbar-nav > .open > a, .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus {
+    border-color:#ff3333;
+}
+.navbar-brand, .navbar-brand:hover{
+    color: #ffffff;
+}
+#conteudo {
+    padding-top:50px;
+}
+
+
+
+
+
+
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 20px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 1;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 400px;
+  background-color:#555;
+}
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 400px;
+}
+
+
+
+
+
+
+
+
+
+/* custom theme
+-------------------------------------------------- */
+
+header {
+    min-height:230px;
+    margin-bottom:5px;
+}
+
+/* theme */
+body {
+  color:#828282;
+  background-color:#eee;
+}
+a,a:hover {
+    text-decoration:none;
+}
+.highlight-bk {
+    padding:1px;
+    width:100%;
+}
+h3.highlight  {
+    padding-top:13px;
+    padding-bottom:14px;
+    border-bottom:2px solid;
+}
+.navbar {
+    color:#ffffff;
+    border:0;
+    border-radius:0;
+}
+.navbar-nav > li > a {
+    color:#fff;
+    padding-left:20px;
+    padding-right:20px;
+    border-left:1px solid #ee3333;
+}
+.navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    color:#666666; 
+}
+.navbar-nav > li:last-child > a {
+    border-right:1px solid #ee3333;
+}
+.navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+.navbar-nav > .open > a, .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus {
+    color: #f0f0f0;
+    background-color:transparent;
+    opacity:.9;
+}
+.nav .open > a {
+    border-color:#777777;
+    border-width:0;
+}
+.accordion-group {
+    border-width:0;
+}
+.dropdown-menu {
+    min-width: 250px;
+}
+.accordion-heading .accordion-toggle, .accordion-inner, .nav-stacked li > a {
+    padding-left:1px;
+}
+.caret {
+    color:#fff;
+}
+.navbar-toggle {
+    background-color: #ffffff;
+    border-width:0;
+}
+.navbar-toggle:hover {
+    background-color:#fff;
+}
+.panel {
+    padding-left:27px;
+    padding-right:27px;
+}
+
+
+
+
+
+
+
+
+
+/* Custom footer CSS
+-------------------------------------------------- */
+
+.container {
+  width: auto;
+  max-width: 700px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+footer {
+/*  bottom: 0;
+  position: absolute;*/
+  width: 100%;
+  box-sizing: border-box;
+}
+footer #links{
+    background-color: #FFFFFF;
+    border: 1px solid #e3e3e3;
+}
+footer #copyright{
+    background-color: #CCC;
+}
+footer .nav{
+    margin-bottom: 30px; 
+}
+footer #copyright h6{
+    display: inline-block;
+}
+footer #copyright h6 a.social{
+    color: #828282;
+}
+footer #copyright h6 a + a{
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+/* Outros
+-------------------------------------------------- */
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+}
+.alert {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.profile-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}

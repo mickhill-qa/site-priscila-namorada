@@ -1,0 +1,64 @@
+
+        </div>
+        
+        <!--Rodapé da página-->
+        <footer>
+            <div id="links">
+                <div class="container">
+                    <div class="row">    
+                        <div class="col-xs-6 col-sm-6 col-md-3 column">          
+                            <h4>Páginas</h4>
+                            <ul class="nav">
+<?php
+    foreach ($this->links_menu as $NomeMenu => $Link) {
+?>
+                                <li><a href="<?php echo $Link; ?>"><?php echo $NomeMenu; ?></a></li>
+<?php
+    }
+?>
+                            </ul> 
+                        </div>
+                        <div class="col-xs-6 col-md-3 column">          
+                            <h4>Follow Us</h4>
+                            <ul class="nav">
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Google+</a></li>
+                                <li><a href="#">Pinterest</a></li>
+                            </ul> 
+                        </div>
+                        <div class="col-xs-6 col-md-3 column">          
+                            <h4>Contact Us</h4>
+                            <ul class="nav">
+                                <li><a href="#">Email</a></li>
+                                <li><a href="#">Headquarters</a></li>
+                                <li><a href="#">Management</a></li>
+                                <li><a href="#">Support</a></li>
+                            </ul> 
+                        </div>
+                        <div class="col-xs-6 col-md-3 column">          
+                            <h4>Login</h4>
+                            <ul class="nav">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Delivery Information</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h6>
+                                <a target="_black" title="Facebook de <?php echo $this->site_author;?>" class="social" href="https://www.facebook.com/MickHill.org"><i class="fa fa-facebook"></i></a>
+                                <a target="_black" title="E-mail de <?php echo $this->site_author;?>" class="social" href="mailto:mickhill@hotmail.com.br?subject=<?php echo $this->site_titulo . ' - ' . $this->site_url; ?>"><i class="fa fa-envelope"></i></a>
+                                <a target="_black" title="GitHub de <?php echo $this->site_author;?>" class="social" href="https://github.com/mickhill"><i class="fa fa-github-alt"></i></a>
+                            </h6>
+                            <h6 class="pull-right"><a><?php echo $this->site_author;?></a><?php echo $this->site_copyright; ?></h6>      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>

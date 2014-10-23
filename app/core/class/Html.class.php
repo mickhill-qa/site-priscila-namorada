@@ -76,6 +76,7 @@ class Html
         echo '<!doctype html>
 <html lang="pt-br">
     <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta charset="UTF-8" />'
         .$this->html_title
         .$this->html_keywords

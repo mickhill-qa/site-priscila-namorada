@@ -1,6 +1,8 @@
 <?php
 
-class Pagina extends Site
+include_once 'Site.class.php';
+
+abstract class Pagina extends Site
 {
     protected $pagina_url;
     public    $pagina_titulo;
@@ -12,12 +14,18 @@ class Pagina extends Site
     {
         parent::__construct();
         
-        $this->pagina_url     = $this->site_url . @$_GET['uri'];
+        $this->pagina_url     = $this->pagina_url();
         $this->pagina_titulo  = $this->site_config['URI'][0] == $this->site_config['PAGINA_INICIAL'] ? $this->site_titulo : $this->pagina_titulo();
+        
+        include_once 'Html.class.php';
         $this->pagina_html    = new Html();
     }
     
-    
+    protected function pagina_url($pg = '')
+    {
+        return $this->pagina_url = $this->site_url . @$_GET['uri'] . ($pg == '' ? '' : '/' . $pg);
+    }
+
     public function pagina_titulo($tituloPagina = '')
     {
         if ($tituloPagina == '')
@@ -32,7 +40,7 @@ class Pagina extends Site
     
     protected function pagina_redireciona($pg = '', $interno = TRUE)
     {
-        if ($interno)
+        if ($interno == true)
             $pg = $this->site_url($pg);
 
         echo '<script>location.href="' . $pg . '";</script>';
@@ -95,11 +103,11 @@ class Pagina extends Site
         foreach ($this->site_config['HTML_HEAD']['js'] as $arquivo)
             $this->pagina_html->js($this->site_url('js/' . $arquivo));
         
-        $this->pagina_html->author($this->site_config['AUTOR_APLICACAO']);
+        $this->pagina_html->author($this->site_author);
         $this->pagina_html->contact($this->site_config['CONTATO_AUTOR']);
         $this->pagina_html->keywords($this->site_config['HTML_HEAD']['keywords']);
         $this->pagina_html->description($this->site_config['HTML_HEAD']['description']);
-        $this->pagina_html->copyright($this->site_config['COPYRIGHT_APLICACAO']);
+        $this->pagina_html->copyright($this->site_copyright);
         
         $this->pagina_html->inicio();
     }
