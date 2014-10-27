@@ -32,19 +32,6 @@ $controller     = default_trata_uri($config['URI'][0] . 'Controller');
 $method         = default_trata_uri($config['URI'][1] = ($config['URI'][1] == null ? 'index' : $config['URI'][1]));
 $pagina         = $config['CAMINHOS']['APLICACAO'] . "controllers/" . $controller . $config['EXTENCOES']['Controllers'];
 
-define('CONFIG',serialize($config));
-
-
-
-if ($config['EXIBIR_CONFIG_PADRAO'])
-{
-    echo '<pre>';
-    var_dump($config);
-    echo '</pre>';
-    die;
-}
-
-
 
 if (file_exists($pagina))
 {

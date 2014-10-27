@@ -6,8 +6,6 @@
  *
  */
 
-echo '<pre>';var_dump($_SERVER);die;
-
 $config['CAMINHOS']['APLICACAO'] = '../app/';
 
 require_once $config['CAMINHOS']['APLICACAO'] . 'core/start.php';

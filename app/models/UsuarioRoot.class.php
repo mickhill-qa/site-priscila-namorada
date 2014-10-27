@@ -2,34 +2,42 @@
 
 class UsuarioRoot
 {
-    public  $nome  = 'sister-araujo';
-    private $senha = '95c206e43fbaae287519c79b14c1dd33';
+    private $session;
+    private $senha;
     
-    public function session()
+    public function __construct($nome_sessio_atual)
     {
-        session_name($this->nome);
-        @session_start();
+        $this->session = $nome_sessio_atual;
+        $this->senha   = '03a19dc32dd105eebdcb1701777925bc';
     }
-    
+
     public function logar()
     {
         if (@$_POST['senha'])
         {
-            $senhaDigitada = md5(@$_POST['senha']);
+            $senhaDigitada = md5(base64_encode(@$_POST['senha']));
             
             if ($senhaDigitada == $this->senha)
             {
-                $this->session();
-                $_SESSION[$this->nome]['usuario-logado'] = true;
+                $_SESSION[$this->session]['usuario']['status-login'] = true;
                 return true;
             }
         }
         return false;
     }
     
+    public function status()
+    {
+        return $_SESSION[$this->session]['usuario'];
+    }
+    
+    public function status_login()
+    {
+        return $_SESSION[$this->session]['usuario']['status-login'];
+    }
+    
     public function deslogar()
     {
-        session_destroy();
-        $this->session();
+        unset($_SESSION[$this->session]['usuario']);
     }
 }

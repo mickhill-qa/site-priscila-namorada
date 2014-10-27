@@ -12,12 +12,13 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
 <?php
-    if(@$_SESSION[$this->usuario_root->nome]['usuario-logado'] == true){
-        foreach ($this->links_menu as $NomeMenu => $Link) {
+    if($this->usuario->status_login()):
+        foreach ($this->links_menu as $NomeMenu => $Link):
+        
 ?>
                         <li><a href="<?php echo $Link; ?>"><?php echo $NomeMenu; ?></a></li>
 <?php
-        }
+        endforeach;
 ?>
                         <li class="dropdown ">
                             <a style="cursor: pointer;" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-user"></span> <b class="glyphicon glyphicon-chevron-down"></b></a>
@@ -26,11 +27,11 @@
                             </ul>
                         </li>
 <?php
-    } else {
+    else:
 ?>
                         <li><a href="<?php echo $this->site_url('login'); ?>">Login</a></li>
 <?php
-    }
+    endif;
 ?>
                     </ul>
                 </div>
@@ -40,8 +41,10 @@
         <!--Conteudo da página-->
         <div id="conteudo">
 <?php
-//    var_dump(@$_SESSION);
-    if (@$_SESSION[$this->usuario_root->nome]['msg']['exibir'] == true){
+//echo '<pre>';
+//var_dump($_SESSION);
+//echo '</pre>';
+    if ($this->mensagem->status_exibir()):
 ?>
             <script>
                 $(document).ready(function(){
@@ -50,13 +53,12 @@
             </script>
             <!--Notificações-->
             <div class="page-alerts">
-                <div id="alerta" class="alert alert-<?php echo @$_SESSION[$this->usuario_root->nome]['msg']['tipo']; ?> page-alert" style="display: none;">
+                <div id="alerta" class="alert alert-<?php echo $this->mensagem->tipo(); ?> page-alert" style="display: none;">
                     <button class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <strong><?php echo @$_SESSION[$this->usuario_root->nome]['msg']['titulo']; ?></strong> <?php echo @$_SESSION[$this->usuario_root->nome]['msg']['texto']; ?>
+                    <strong><?php echo $this->mensagem->titulo(); ?></strong> <?php echo $this->mensagem->texto(); ?>
+
                 </div>
             </div>
 <?php
-        $_SESSION[$this->usuario_root->nome]['msg']['exibir'] = false;
-    }
+    endif;
 ?>
-            

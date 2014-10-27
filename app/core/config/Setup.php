@@ -9,6 +9,7 @@
  */
 
 $config['TITULO_APLICACAO']            = 'Sister Araújo';
+$config['SLUG_SESSION']                = 'sister-araujo';
 $config['AUTOR_APLICACAO']             = '';
 $config['CONTATO_AUTOR']               = '';
 $config['PAGINA_INICIAL']              = '';

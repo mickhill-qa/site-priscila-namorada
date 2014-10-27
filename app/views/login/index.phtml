@@ -1,23 +1,23 @@
-<div class="container" title="Senha de Mick Hill.">
-    <div class="row">
-        <div class="mainbox col-md-6 col-md-offset-3">
-            <div class="panel">
-                <h3>Login <i class="fa fa-lock pull-right"></i></h3>
-                <div style="padding:0 0 30px 0" class="panel-body text-center" >
-                    <div class="account-wall">
-                        <img alt="" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.0.160.160/p160x160/10685595_656045717835956_6798074067255551415_n.jpg?oh=96a1d969b884a2ac756756800dcaf1ac&oe=54C5A892&__gda__=1420933484_17d64ace0f61aee725a7009c4978780c" class="profile-img">
-                        <h3 style="margin-bottom: 0"><?php echo $this->site_titulo;?></h3>
-                        <span>priscila.araujo@myldsmail.net</span>
+            <div class="container" title="Senha de Mick Hill.">
+                <div class="row">
+                    <div class="mainbox col-md-6 col-md-offset-3">
+                        <div class="panel">
+                            <h3>Login <i class="fa fa-lock pull-right"></i></h3>
+                            <div style="padding:0 0 30px 0" class="panel-body text-center" >
+                                <div class="account-wall">
+                                    <img alt="" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.0.160.160/p160x160/10685595_656045717835956_6798074067255551415_n.jpg?oh=96a1d969b884a2ac756756800dcaf1ac&oe=54C5A892&__gda__=1420933484_17d64ace0f61aee725a7009c4978780c" class="profile-img">
+                                    <h3 style="margin-bottom: 0"><?php echo $this->site_titulo;?></h3>
+                                    <span>priscila.araujo@myldsmail.net</span>
+                                </div>
+                                <form method="post" action="<?php echo $this->site_url('login/entrar');?>">
+                                    <input id="input-senha" style="margin: 15px 0" type="password" class="form-control" name="senha" placeholder="Senha">
+                                    <button id="btn-login" class="btn btn-block btn-default">Entrar</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <form method="post" action="login/entrar">
-                        <input id="input-senha" style="margin: 15px 0" type="password" class="form-control" name="senha" placeholder="Senha">
-                        <button id="btn-login" class="btn btn-block btn-default">Entrar</button>
-                    </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
 <!-------------------------Load--------------------------------------->
 <!--<button onclick="loading('Logando...');" class="btn btn-danger" type="button">Logando</button>-->

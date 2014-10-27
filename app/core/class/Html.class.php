@@ -95,7 +95,7 @@ class Html
     
     public function fim()
     {
-        echo '
+        if($this->iniciou) echo '
     </body>
 </html>'
         ;

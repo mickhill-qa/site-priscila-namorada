@@ -1,6 +1,7 @@
 <?php
 
 $config['TITULO_APLICACAO']            = default_valida_valor(@$config['TITULO_APLICACAO'],           'Simple MVC');
+$config['SLUG_SESSION']                = default_valida_valor(@$config['SLUG_SESSION'],               'simple-mvc');
 $config['AUTOR_APLICACAO']             = default_valida_valor(@$config['AUTOR_APLICACAO'],            'Mick Hill');
 $config['CONTATO_AUTOR']               = default_valida_valor(@$config['CONTATO_AUTOR'],              'mickhill@hotmail.com.br');
 $config['PAGINA_INICIAL']              = default_valida_valor(@$config['PAGINA_INICIAL'],             'index');
@@ -37,11 +38,6 @@ else
 
 
 
-function default_config()
-{
-    return unserialize(CONFIG);
-}
-
 function default_trata_uri($string, $sep = '')
 {
     $string = explode('-', $string);
@@ -59,4 +55,20 @@ function default_trata_uri($string, $sep = '')
 function default_valida_valor($variavel, $valor)
 {
     return(($variavel == NULL || $variavel == '')? $valor : $variavel);
+}
+
+function default_debug($var)
+{
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+}
+
+
+
+
+if ($config['EXIBIR_CONFIG_PADRAO'])
+{
+    default_debug($config);
+    die;
 }
