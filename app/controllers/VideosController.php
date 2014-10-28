@@ -2,6 +2,8 @@
 
 class VideosController extends Controller
 {
+    public $videos_youtube;
+    
     public function __construct()
     {
         parent::__construct();
@@ -15,6 +17,21 @@ class VideosController extends Controller
 
     public function Index()
     {
+        $this->videos_youtube = array(
+            '1' => array(
+                'titulo' => 'Primeiro Video',
+                'data'   => 'Não lembro a data!',
+                'link'   => 'http://www.youtube.com/watch?v=uQB7QRyF4p4',
+                'texto'  => 'Acho que esse foi o primeiro vídeos que eu te mandei, é aquele do cachorrinho.'
+            ),
+            '2' => array(
+                'titulo' => 'Segundo Video',
+                'data'   => 'Não lembro a data!',
+                'link'   => 'https://www.youtube.com/watch?v=yET4p-r2TI8',
+                'texto'  => 'Esse é aquele que te mandei por último no antigo site - Story of My Life.'
+            )
+        );
+        
         $this->pagina_add_js('bootstrap.youtubepopup.min');
         $this->layout();
         $this->exibir_videos_youtube();

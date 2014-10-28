@@ -5,7 +5,6 @@ include_once 'Site.class.php';
 abstract class Pagina extends Site
 {
     protected $pagina_url;
-    protected $pagina_uri;
     public    $pagina_titulo;
     public    $pagina_dados;
     private   $pagina_html;
@@ -16,7 +15,6 @@ abstract class Pagina extends Site
         parent::__construct();
         
         $this->pagina_url     = $this->pagina_url();
-        $this->pagina_uri     = $_GET['uri'];
         $this->pagina_titulo  = $this->site_uri[0] == $this->site_homepage ? $this->site_titulo : $this->pagina_titulo();
         
         include_once           'Html.class.php';
@@ -25,7 +23,7 @@ abstract class Pagina extends Site
     
     protected function pagina_url($pg = '')
     {
-        return $this->pagina_url = $this->site_url . @$this->pagina_uri . ($pg == '' ? '' : '/' . $pg);
+        return $this->pagina_url = $this->site_url . @$_GET['uri'] . ($pg == '' ? '' : '/' . $pg);
     }
 
     public function pagina_titulo($tituloPagina = '')

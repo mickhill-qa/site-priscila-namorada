@@ -5,6 +5,7 @@ class Controller extends Pagina
     public $links_menu;
     public $usuario;
     public $mensagem;
+    public $redes;
 
     public function __construct()
     {
@@ -13,10 +14,21 @@ class Controller extends Pagina
         $this->site_session();
         $this->usuario  = $this->site_model('UsuarioRoot', $this->site_session_nome);
         $this->mensagem = $this->site_model('MensagemAleraInforma', $this->site_session_nome);
+
+
+
+        $this->links_menu["Inicial"]   = $this->site_url;
         
-        $this->links_menu = array(
-//            "Imagens" => $this->site_url('imagens'),
-            "Vídeos"  => $this->site_url('videos')
+        if(!$this->usuario->status_login())
+            $this->links_menu["Login"] = $this->site_url('login');
+        
+        $this->links_menu["Vídeos"]    = $this->site_url('videos');
+        
+        
+        $this->redes = array(
+            '<i class="glyphicon glyphicon-envelope"></i> E-mail Missão'    => 'mailto:priscila.araujo@myldsmail.net?subject=Olá Sister!!!',
+            '<i class="fa fa-facebook-square"></i> Facebook'                => 'https://www.facebook.com/priscila.lima.31586',
+            '<i class="fa fa-google-plus-square"></i> Google+'              => 'https://plus.google.com/u/0/116213368272983215186/'
         );
     }
 

@@ -10,44 +10,45 @@
                             <h4>Páginas</h4>
                             <ul class="nav">
 <?php
-    foreach ($this->links_menu as $NomeMenu => $Link) {
+    foreach ($this->links_menu as $NomeMenu => $Link):
+        if($this->pagina_url != $Link)
+            echo '<li><a href="' . $Link. '">';
+                                            
+        else
+            echo '<li title="Você já nesta Página!" style="cursor: default"><a style="color: #828282">';
+                                            
+        echo $NomeMenu . '</a></li>';
+
+    endforeach;
 ?>
-                                <li><a href="<?php echo $Link; ?>"><?php echo $NomeMenu; ?></a></li>
+                            </ul> 
+                        </div>
+                        <div class="col-xs-6 col-md-3 column">          
+                            <h4>Contatos</h4>
+                            <ul class="nav">
 <?php
-    }
+    foreach ($this->redes as $NomeRede => $Link):
 ?>
-                            </ul> 
+                                <li><a target="_blank" href="<?php echo $Link; ?>"><?php echo $NomeRede; ?></a></li>
+<?php
+    endforeach;
+?>
+                            </ul>
                         </div>
-                        <div class="col-xs-6 col-md-3 column">          
-                            <h4>Follow Us</h4>
-                            <ul class="nav">
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">Facebook</a></li>
-                                <li><a href="#">Google+</a></li>
-                                <li><a href="#">Pinterest</a></li>
-                            </ul> 
-                        </div>
-                        <div class="col-xs-6 col-md-3 column">          
-                            <h4>Contact Us</h4>
-                            <ul class="nav">
-                                <li><a href="#">Email</a></li>
-                                <li><a href="#">Headquarters</a></li>
-                                <li><a href="#">Management</a></li>
-                                <li><a href="#">Support</a></li>
-                            </ul> 
-                        </div>
-                        <div class="col-xs-6 col-md-3 column">          
-                            <h4>Login</h4>
-                            <ul class="nav">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul> 
+                        <div class="col-xs-12 col-md-6 column">          
+                            <h4 class="text-right">Cartas para <?php echo $this->site_titulo; ?></h4>
+                            <p class="text-right">
+                                Av. Dom Antônio Brandão Nº 333, Sala 402,<br />
+                                Ed. Work Center,<br />
+                                Bairro: Farol,<br />
+                                Cep: 57051-190,<br />
+                                Maceió - AL.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="copyright">
+            <div id="copyright" title="Desenvolvedor do site">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -56,9 +57,48 @@
                                 <a target="_black" title="E-mail de <?php echo $this->site_author;?>" class="social" href="mailto:mickhill@hotmail.com.br?subject=<?php echo $this->site_titulo . ' - ' . $this->site_url; ?>"><i class="fa fa-envelope"></i></a>
                                 <a target="_black" title="GitHub de <?php echo $this->site_author;?>" class="social" href="https://github.com/mickhill"><i class="fa fa-github-alt"></i></a>
                             </h6>
-                            <h6 class="pull-right"><a><?php echo $this->site_author;?></a><?php echo $this->site_copyright; ?></h6>      
+                            <h6 class="pull-right"><a><?php echo $this->site_author;?></a><a href="https://github.com/mickhill/Site-Priscila-Namorada" target="_blank" class="text-muted"><?php echo $this->site_copyright; ?></a></h6>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
+
+        <!-- Modal Sobre -->
+        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="sobre" class="modal fade" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-info text-center">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h5 style="display: inline-block; font-weight: normal;">Site: </h5>
+                        <h1 style="display: inline-block; margin: 10px 0;"><?php echo $this->site_titulo; ?></h1>
+                        <em style="display: inline-block"> <?php echo $this->site_versao;?></em>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>
+                            <?php echo $this->site_cabecalho['description'];?>
+                            <br /><br />
+                            Outubro de 2014, Fortaleza-CE.
+                        </p>
+                    </div>
+                    <div class="modal-footer" style="padding: 10px 22px;">
+                        <div class="pull-left" style="font-size: 10px;">
+                            Desenvolvedor:
+                            <h4 style="margin: 0"><?php echo $this->site_author;?></h4>
+                        </div>
+                        <div style="display: inline-block">
+                            <a target="_blank" href="mailto:<?php echo $this->site_author_contato; ?>?subject=Site: <?php echo $this->site_titulo; ?>" class="btn btn-social-icon btn-warning" style="margin-top: 4px;"><span class="glyphicon glyphicon-envelope"></span></a>
+                            <a target="_blank" href="https://google.com/+MickHill/" class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a target="_blank" href="http://www.facebook.com/MickHill.org" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="https://twitter.com/vipmickhill" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                        </div>
+                        <div style="display: inline-block; margin-left: 4px;">
+                            <a target="_blank" href="http://lnkd.in/d6BYt6g" class="btn btn-social-icon btn-linkedin" style="margin-top: 4px;"><i class="fa fa-linkedin"></i></a>
+                            <a target="_blank" href="http://pinterest.com/vipmickhill/" class="btn btn-social-icon btn-pinterest"><i class="fa fa-pinterest"></i></a>
+                            <a target="_blank" href="https://github.com/mickhill" class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
+                            <a target="_blank" href="https://bitbucket.org/MickHill" class="btn btn-social-icon btn-bitbucket"><i class="fa fa-bitbucket"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal -->
