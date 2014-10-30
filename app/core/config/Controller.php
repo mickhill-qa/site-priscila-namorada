@@ -77,9 +77,9 @@ class Controller extends Pagina
         die;
     }
     
-    public function pagina_erro($tituloView, $nomeArquivo = '404')
+    public function pagina_erro($tituloView = '', $nomeArquivo = '404')
     {
-        if(!$tituloView)
+        if($tituloView == '')
             $tituloView = $this->titulo_404;
 
         $this->pagina_titulo = $tituloView;
