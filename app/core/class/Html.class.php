@@ -8,7 +8,8 @@ class Html
     private   $html_copyright;
     private   $html_favicon;
     private   $html_css;
-    private   $html_js;
+    private   $html_js_head;
+    private   $html_js_footer;
     private   $html_author;
     private   $html_contact;
     public    $iniciou = false;
@@ -49,9 +50,15 @@ class Html
         <link   type="text/css"        href="' . $arquivo . '.css" rel="stylesheet" />';
     }
     
-    public function js($arquivo = "")
+    public function js_head($arquivo = "")
     {
-        $this->html_js .= '
+        $this->html_js_head .= '
+        <script type="text/javascript" src="' . $arquivo . '.js"></script>';
+    }
+    
+    public function js_footer($arquivo = "")
+    {
+        $this->html_js_footer .= '
         <script type="text/javascript" src="' . $arquivo . '.js"></script>';
     }
     
@@ -84,7 +91,7 @@ class Html
         .$this->html_copyright
         .$this->html_favicon
         .$this->html_css
-        .$this->html_js
+        .$this->html_js_head
         .$this->html_author
         .$this->html_contact
         .'
@@ -95,7 +102,8 @@ class Html
     
     public function fim()
     {
-        if($this->iniciou) echo '
+        if($this->iniciou)
+            echo $this->html_js_footer . '
     </body>
 </html>'
         ;

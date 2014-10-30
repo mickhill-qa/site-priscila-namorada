@@ -27,17 +27,20 @@
                         <li class="dropdown ">
                             <a style="cursor: pointer;" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-user"></span> <b class="glyphicon glyphicon-chevron-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li class=""><a href="<?php echo $this->site_url('login/sair'); ?>"><span class="fa fa-arrow-right"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sair do sistema&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(logout)</a></li>
+                                <li class=""><a href="<?php echo $this->site_url('login/sair'); ?>"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sair do sistema&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(logout)</a></li>
                             </ul>
                         </li>
 <?php
     elseif($this->site_uri[0] == $this->site_homepage):
 ?>
-                        <li><a href="<?php echo $this->site_url('login'); ?>">Login</a></li>
+                        <li><a href="<?php echo $this->site_url('login'); ?>"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
 <?php
     else:
 ?>
+                        <li><a style="cursor: pointer" href="<?php echo $this->site_url;?>" ><i class="fa fa-mail-reply-all"></i> Voltar ao inicio</a></li>
+                        <!--
                         <li><a style="cursor: pointer" onClick="return history.go(-1)" ><i class="fa fa-mail-reply-all"></i> Voltar</a></li>
+                        -->
 <?php
     endif;
 ?>
@@ -49,14 +52,9 @@
         <!--Conteudo da página-->
         <div id="conteudo">
 <?php
-    if ($this->mensagem->status_exibir()):
+    if ($this->mensagem->status_exibicao()):
 ?>
-            <script>
-                $(document).ready(function(){
-                    alerta();
-                });
-            </script>
-            <!--Notificações-->
+            <!--Notificação-->
             <div class="page-alerts">
                 <div id="alerta" class="alert alert-<?php echo $this->mensagem->tipo(); ?> page-alert" style="display: none;">
                     <button class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>

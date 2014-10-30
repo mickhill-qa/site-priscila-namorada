@@ -1,4 +1,12 @@
 <?php
+/*
+ *-------------------------------------------------------
+ *              Simple MVC - Mick Hill
+ *-------------------------------------------------------
+ * 
+ *  Front control - Arquivo que faz o fluxo MVC
+ *
+ */
 
 require_once $config['CAMINHOS']['APLICACAO'] . 'core/config/Setup.php';
 
@@ -44,9 +52,7 @@ else
 
 
 if(!method_exists($paginaAtual, $method))
-{
-    $paginaAtual->pagina_titulo = 'Error 404 (Not Found)!!!';
     $method = 'pagina_erro';
-}
+
 
 $paginaAtual->$method();

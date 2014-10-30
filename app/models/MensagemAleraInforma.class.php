@@ -25,7 +25,7 @@ class MensagemAleraInforma
         return $_SESSION[$this->session]['msg']['tipo'];
     }
     
-    public function status_exibir()
+    public function status_exibicao()
     {
         return $_SESSION[$this->session]['msg']['exibir'];
     }

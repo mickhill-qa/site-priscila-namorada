@@ -1,4 +1,12 @@
 <?php
+/*
+ *-------------------------------------------------------
+ *              Simple MVC - Mick Hill
+ *-------------------------------------------------------
+ * 
+ *  Configuração global do site:
+ *
+ */
 
 abstract class Site
 {
@@ -15,6 +23,7 @@ abstract class Site
     protected $site_homepage;
     protected $site_caminhos;
     protected $site_cabecalho;
+    protected $site_rodape;
 
     public function __construct()
     {
@@ -33,6 +42,7 @@ abstract class Site
         $this->site_homepage        = $this->site_config['PAGINA_INICIAL'];
         $this->site_caminhos        = $this->site_config['CAMINHOS'];
         $this->site_cabecalho       = $this->site_config['HTML_HEAD'];
+        $this->site_rodape          = $this->site_config['HTML_FOOTER'];
     }
     
     protected function site_url($uri = '')

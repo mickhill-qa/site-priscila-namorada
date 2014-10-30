@@ -4,7 +4,7 @@
  *              Simple MVC - Mick Hill
  *-------------------------------------------------------
  * 
- *  Configurações do site:
+ *  Configurações do site
  *
  */
 
@@ -17,10 +17,11 @@ $config['VERSAO_APLICACAO']            = 'v2.0';
 $config['COPYRIGHT_APLICACAO']         = '';
 
 $config['HTML_HEAD']['keywords']       = 'declaração, amor, amor, apaixonado, quero, vocẽ';
-$config['HTML_HEAD']['description']    = 'Declaração para meu amor que está fazendo 9 meses de Missão!';
+$config['HTML_HEAD']['description']    = 'Desenvolvi esse site afim de mostrar alguns vídeos do YouTube para minha namorada que até a  data desta publicação é missionária de tempo integral de A IGREJA DE JESUS CRISTO DOS SANTOS DOS ÚLTIMOS DIAS. Minha intenção é mostrar para ela alguns vídeos que ao longo da semana me fizeram pensar nela, mas faze-lo sem que ela quebre as regras de sua missão, pois em algumas missões não se pode ter acesso a redes sociais como Facebook, Google+... Esse é o caso dela (baseado nessa idéia desenvolvi a primeira versão que era bem mais simples). Então junto a essa solução implementei mais algumas coisas que achei conveniente (isso já nessa verão: 2.0). Caso queira ver como essa aplicação funciona em back-end ou como era a versão anterior, disponibilizei o código fonte em meu GitHub.';
 $config['HTML_HEAD']['favicon']        = true;
 $config['HTML_HEAD']['css']            = array('bootstrap.min', 'font-awesome.min', 'bootstrap-social', 'sisteraraujo');
-$config['HTML_HEAD']['js']             = array('jquery-1.10.2.min', 'bootstrap.min', 'sisteraraujo');
+$config['HTML_HEAD']['js']             = array('jquery-1.10.2.min', 'bootstrap.min');
+$config['HTML_FOOTER']['js']           = array('sisteraraujo');
 
 $config['URL_BASE']['URL_DINAMICA']    = true;
 $config['URL_BASE']['ALIAS']           = 'sisteraraujo';

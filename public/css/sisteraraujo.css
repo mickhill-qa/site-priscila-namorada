@@ -16,9 +16,9 @@ nav *, footer *{
     transition: 0.5s;
 }
 
-.color1-bg, .highlight-bk, .navbar, .icon-bar{
+.color1-bg, .highlight-bk, .navbar, .icon-bar, .modal-header-info, .digit.static{
     /*background-color:#ff3333;*/
-    background:linear-gradient(to bottom, #ff3333, #ff1515);
+    background:linear-gradient(to bottom, #ff3333, #ff1515) !important;
 }
 .color1-text, .navbar-toggle, a, a:hover, .highlight{
     color:#ff3333;
@@ -44,8 +44,6 @@ nav *, footer *{
     color: #fff;
     padding: 9px 15px;
     border-bottom: 1px solid #eee;
-    /*background-color: #5bc0de;*/
-    background-color: #5cb85c;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;

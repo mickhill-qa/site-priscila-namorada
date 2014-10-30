@@ -17,9 +17,11 @@
 
                 <hr>
                 
-                <h2 id="youtube">Vídeos do <i class="fa fa-youtube-play"></i> YouTube:</h2><br />
+                <h2 id="youtube">Vídeos do <i class="fa fa-youtube-play"></i> YouTube:</h2>
 <?php
-    foreach($this->videos_youtube as $video):
+    if ($this->videos_youtube):
+        echo '<br />';
+        foreach($this->videos_youtube as $video):
 ?>
                 <a class="youtube" href="<?php echo $video['link']; ?>" title="Clique aqui!">
                     <div class="well">
@@ -29,7 +31,12 @@
                     </div>
                 </a>
 <?php
-    endforeach;
+        endforeach;
+    else:
+?>
+                <h5 class="text-center well"><a>Não há vídeos cadastrados!!!</a></h5>
+<?php
+    endif;
 ?>
             </div>
       	</div> 
