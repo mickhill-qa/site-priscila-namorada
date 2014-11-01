@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-12 text-center">
+            <h1>
+                <a title="scroll down for your viewing pleasure">Imagens</a>
+                <p class="lead">da missão de <?php echo $this->site_titulo;?>.</p>
+            </h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- The container for the list of example images -->
+    <div id="links" class="panel text-center">
+<?php
+    if ($this->imagens):
+        echo '<br />';
+        foreach($this->imagens as $imagem):
+?>
+        <a href="<?php echo $imagem; ?>" data-gallery="">
+            <img class="well imagem" src="<?php echo $imagem; ?>">
+        </a>
+<?php
+        endforeach;
+    else:
+?>
+        <a>Não há imagens!!!</a>
+<?php
+    endif;
+?>
+    </div>
+</div>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery" style="display: none;">
+    
+    <!-- The container for the modal slides -->
+    <div class="slides" style="width: 136600px;"></div>
+    
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">×</button>
+                    <h4 class=""><?php echo $this->site_titulo;?></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Anterior
+                    </button>
+                    <button type="button" class="btn btn-danger next">
+                        Próxima
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,7 +16,7 @@ nav *, footer *{
     transition: 0.5s;
 }
 
-.color1-bg, .highlight-bk, .navbar, .icon-bar, .modal-header-info, .digit.static{
+.color1-bg, .highlight-bk, .navbar, .icon-bar, .modal-header-info, .digit.static, .btn-danger{
     /*background-color:#ff3333;*/
     background:linear-gradient(to bottom, #ff3333, #ff1515) !important;
 }
@@ -50,6 +50,29 @@ nav *, footer *{
     -moz-border-radius-topright: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+}
+
+a img.imagem{
+    margin-left: 15px;
+    display: inline-block;
+    width: 100px;
+    padding: 5px;
+}
+
+.facebook-seguir{
+    margin-top: -1px;
+    margin-left: -20px;
+    border-radius: 4px;
+}
+.facebook-seguir iframe{
+    border:none;
+    overflow:hidden;
+    padding: 0;
+    width:93px;
+    height:20px;
+}
+.facebook-seguir *{
+    background: linear-gradient(to bottom, #4B67BC, #3E57A5) !important;
 }
 
 
@@ -243,4 +266,14 @@ footer #copyright h6 a + a{
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
+}
+
+.banner-paralax{
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
 }

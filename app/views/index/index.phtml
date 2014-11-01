@@ -1,25 +1,56 @@
 <!-------------------------------------------------------Banner------------------------------------------------------->
 <div class="carousel slide" id="myCarousel">
     <ol class="carousel-indicators">
-        <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+        <li data-slide-to="0" data-target="#myCarousel" class="active" ></li>
         <li data-slide-to="1" data-target="#myCarousel" class=""></li>
+<?php
+    if($this->banners):
+        static $i = 1;
+        foreach($this->banners as $banner):
+            $i++;
+?>
+        <li data-slide-to="<?php echo $i;?>" data-target="#myCarousel" class=""></li>
+<?php
+        endforeach;
+    endif;
+?>
     </ol>
     <div class="carousel-inner">
-        <div class="item active">
-            <img class="img-responsive" src="<?php echo $this->site_url('img/banner/2.png'); ?>">
+        <div class="item active banner-paralax" style="background-image: url(<?php echo $this->site_url('img/banner/1.png'); ?>);">
             <div class="container">
                 <div class="carousel-caption" style="text-shadow: 0 3px 5px rgba(0,0,0,.6)">
                     <h1>Dia 16 de Dezembro de 2014 as 11h e 45min</h1>
                     <h3 style="font-style: italic;">"Dia de sua volta! Falta só"</h3>
                     <div id="countdown"></div>
                     <p id="note"></p>
-                    <!--<p><a href="#" class="btn btn-large btn-primary">Learn more</a></p>-->
                 </div>
             </div>
         </div>
-        <div class="item">
-            <img class="img-responsive" src="<?php echo $this->site_url('img/banner/1.png'); ?>">
+        <div class="item banner-paralax" style="background-image: url(<?php echo $this->site_url('img/banner/2.png'); ?>);">
+            <div class="container">
+                <div class="carousel-caption">
+                    <p>
+                        <em>
+                            "Portanto, ó vós que embarcais no serviço de Deus,
+                            vede que o sirvais de todo o coração, poder, mente
+                            e força, para que vos apresenteis sem culpa perante
+                            Deus no último dia.
+                            (<a target="_blank" href="https://www.lds.org/scriptures/dc-testament/dc/4?lang=por">D&C 4:2</a>)"
+                        </em>
+                    </p>
+                    <p><a class="btn btn-large btn-danger" href="<?php echo $this->site_url('imagens'); ?>"><i class="fa fa-picture-o"></i> Ver fotos</a></p>
+                </div>
+            </div>
         </div>
+<?php
+    if($this->banners):
+        foreach($this->banners as $banner):
+?>
+        <div class="item banner-paralax" style="background-image: url(<?php echo $banner; ?>);"></div>
+<?php
+        endforeach;
+    endif;
+?>
     </div>
     <a data-slide="prev" href="#myCarousel" class="left carousel-control">
         <span class="icon-prev"></span>

@@ -41,7 +41,7 @@ class Html
     public function favicon($arquivo = '')
     {
         $this->html_favicon = '
-        <link   rel="shortcut icon"    href="'. $arquivo .'" />';
+        <link type="image/x-icon" rel="icon" href="'. $arquivo .'" />';
     }
     
     public function css($arquivo = "")
@@ -83,13 +83,12 @@ class Html
         echo '<!doctype html>
 <html lang="pt-br">
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta charset="UTF-8" />'
         .$this->html_title
+        .$this->html_favicon
         .$this->html_keywords
         .$this->html_description
         .$this->html_copyright
-        .$this->html_favicon
         .$this->html_css
         .$this->html_js_head
         .$this->html_author

@@ -7,8 +7,7 @@ class LoginController extends Controller
         if($this->usuario->status_login())
             $this->pagina_erro();
 
-        else
-            $this->layout();
+        else $this->layout();
     }
     
     public function entrar()

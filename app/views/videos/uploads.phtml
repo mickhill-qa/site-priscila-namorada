@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-3">
+            <div class="">
+                <ul class="nav bs-docs-sidenav">
+                    <li><h3 class="highlight">Vídeos <i class="fa fa-video-camera pull-right"></i></h3></li>
+<?php
+    if ($this->links_lateral):
+        foreach($this->links_lateral as $nome => $link):
+            if ($link == $this->pagina_atual) continue;
+?>
+                    <li><a href="<?php echo $link; ?>"><?php echo $nome; ?></a></li>
+<?php
+        endforeach;
+    endif;
+?>
+                </ul>
+            </div>
+        </div>  
+        <div class="col col-sm-9">
+            <div class="panel">                
+                <h2 id="youtube"> <?php echo $this->pagina_titulo;?></h2>
+<?php
+    if ($this->videos_uploads):
+        echo '<br />';
+        foreach($this->videos_uploads as $video):
+?>
+                <video class="well" width="100%" controls>
+                    <source src="<?php echo $video;?>">
+                    O seu navegador não suporta a tag &LT;video&GT;, tente abrir em outro navegador.
+                </video>
+<?php
+        endforeach;
+    else:
+?>
+                <h5 class="text-center well"><a>Não há vídeos!!!</a></h5>
+<?php
+    endif;
+?>
+            </div>
+      	</div> 
+    </div>
+</div>

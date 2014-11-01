@@ -9,5 +9,6 @@
  */
 
 $config['CAMINHOS']['APLICACAO'] = '../app/';
+$config['CAMINHOS']['PUBLIC']    = __DIR__;
 
 require_once $config['CAMINHOS']['APLICACAO'] . 'core/start.php';

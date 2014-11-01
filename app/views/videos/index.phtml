@@ -4,40 +4,39 @@
             <div class="">
                 <ul class="nav bs-docs-sidenav">
                     <li><h3 class="highlight">Vídeos <i class="fa fa-video-camera pull-right"></i></h3></li>
-                    <li><a href="<?php echo $this->site_url('videos/mick-hill'); ?>"><i class="fa fa-film"></i> Mick Hill</a></li>
+<?php
+    if ($this->links_lateral):
+        foreach($this->links_lateral as $nome => $link):
+            if ($link == $this->pagina_atual) continue;
+?>
+                    <li><a href="<?php echo $link; ?>"><?php echo $nome; ?></a></li>
+<?php
+        endforeach;
+    endif;
+?>
                 </ul>
             </div>
         </div>  
         <div class="col col-sm-9">
-            <div class="panel">
+            <div class="panel text-justify">
                 <h1>Olá meu amor!!!</h1>
                 <h5>Como vecê está? espero que bem.</h5>
-                <p>Demorou mais terminei! aqui em baixo esta os videos que postei pra vc no outro site, é só clicar nos blocos com a descrição.</p>
-                <img class="img-responsive" src="<?php echo $this->site_url('img/videos.jpg');?>">
-
-                <hr>
-                
-                <h2 id="youtube">Vídeos do <i class="fa fa-youtube-play"></i> YouTube:</h2>
-<?php
-    if ($this->videos_youtube):
-        echo '<br />';
-        foreach($this->videos_youtube as $video):
-?>
-                <a class="youtube" href="<?php echo $video['link']; ?>" title="Clique aqui!">
-                    <div class="well">
-                        <h4><?php echo $video['titulo']; ?> - <?php echo $video['data']; ?></h4>
-                        <p class="text-muted"><?php echo $video['texto']; ?></p>
-                        <p class="text-right">Clique aqui para ver o vídeo!</p>
-                    </div>
-                </a>
-<?php
-        endforeach;
-    else:
-?>
-                <h5 class="text-center well"><a>Não há vídeos cadastrados!!!</a></h5>
-<?php
-    endif;
-?>
+                <p>
+                    Demorou mais terminei!
+                    aqui do lado está três páginas de videos sendo elas os vídeos do YouTube,
+                    uma página de vídeos que prometi e uma outra (+Outros) com alguns videos que
+                    gostei mas não achei no YouTube então tive que baixa-los. Nos vídeos do YouTube
+                    é só clicar nos blocos com a descrição. Há nesse vídeos aqui em baixo é o meu
+                    queixo de desculpa pelo atraso... kkkkk
+                    <br />
+                    (<em class="text-danger">"Se o vídeo não funcionar, tenta usar outro navegador, de preferência o Google Chrome - É porque o Mozila Firefoz aqui no Mac não esta funcionando com MP4."</em>)
+                </p>
+                <video class="well" width="100%" controls>
+                    <source src="<?php echo $this->site_url('uploads/videos/1.mp4');?>" type="video/mp4">
+                    O seu navegador não suporta a tag &LT;video&GT;, tente abrir em outro navegador.
+                </video>
+                <img class="well img-responsive" src="<?php echo $this->site_url('img/videos.jpg');?>">
+                <p class="text-right">Te amooooooo!!!</p>
             </div>
       	</div> 
     </div>

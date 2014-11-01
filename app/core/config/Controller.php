@@ -13,9 +13,8 @@ class Controller extends Pagina
     public    $links_menu;
     public    $usuario;
     public    $mensagem;
+    protected $pasta_uploads;
     public    $redes;
-    protected $titulo_403;
-    protected $titulo_404;
 
     public function __construct()
     {
@@ -23,25 +22,14 @@ class Controller extends Pagina
 
 
 
-        // Exclui o "/index" da uir...
-        if($this->pagina_uri[0] == "index")
-            $this->pagina_redireciona();
-
-        elseif($this->pagina_uri[1] == "index")
-            $this->pagina_redireciona($this->pagina_uri[0]);
-
-
-
-        // Titulos das páginas de erro
-        $this->titulo_403 = 'Acesso Negado!';
-        $this->titulo_404 = 'Oops! 404 Not Found';
-
-
-
         // Cria objetos essenciais a essa aplicação...
         $this->site_session();
-        $this->usuario  = $this->site_model('UsuarioRoot', $this->site_session_nome);
-        $this->mensagem = $this->site_model('MensagemAleraInforma', $this->site_session_nome);
+        $this->usuario       = $this->site_model('UsuarioRoot', $this->site_session_nome);
+        $this->mensagem      = $this->site_model('MensagemAleraInforma', $this->site_session_nome);
+        $this->pasta_uploads = $this->site_model('ArquivosMickHill',
+                                                    $this->site_url,
+                                                    $this->site_caminhos['PUBLIC']
+                                                );
 
         if ($this->mensagem->status_exibicao())
             $this->pagina_add_js_footer('exec-notificacao');
@@ -50,6 +38,7 @@ class Controller extends Pagina
 
         // Links dos menus: Topo e Rodapé
         $this->links_menu["Inicial"]   = $this->site_url;
+        $this->links_menu["Imagens"]   = $this->site_url('imagens');
         if(!$this->usuario->status_login())
         $this->links_menu["Login"]     = $this->site_url('login');
         $this->links_menu["Vídeos"]    = $this->site_url('videos');
@@ -77,13 +66,21 @@ class Controller extends Pagina
         die;
     }
     
-    public function pagina_erro($tituloView = '', $nomeArquivo = '404')
+    public function pagina_erro($nomeArquivo = '', $tituloView = '')
     {
-        if($tituloView == '')
-            $tituloView = $this->titulo_404;
+        if(($nomeArquivo == 404 || $nomeArquivo == 403) && $tituloView != '')
+            exit("Para o erro $nomeArquivo o titulo é o padão do setup...");
+        
+        if($nomeArquivo == '' || $nomeArquivo == 404)
+        {
+            $nomeArquivo = 404;
+            $tituloView  = $this->site_titulo_erros['404'];
+        }
 
+        elseif($nomeArquivo == 403)
+            $tituloView = $this->site_titulo_erros['403'];
+        
         $this->pagina_titulo = $tituloView;
         $this->layout('erros/' . $nomeArquivo);
-        die;
     }
 }

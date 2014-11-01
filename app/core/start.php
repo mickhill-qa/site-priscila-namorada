@@ -36,6 +36,7 @@ require_once $config['CAMINHOS']['APLICACAO'] . 'core/config/Controller.php';
 $config['URI']  = isset($_GET['uri']) ? $_GET['uri'] : $config['PAGINA_INICIAL'];
 $config['URI'] .= '/';
 $config['URI']  = explode("/", $config['URI']);
+$config['URI']  = array_filter($config['URI']);
 $controller     = default_trata_uri($config['URI'][0] . 'Controller');
 $method         = default_trata_uri($config['URI'][1] = ($config['URI'][1] == null ? 'index' : $config['URI'][1]));
 $pagina         = $config['CAMINHOS']['APLICACAO'] . "controllers/" . $controller . $config['EXTENCOES']['Controllers'];
@@ -52,7 +53,11 @@ else
 
 
 if(!method_exists($paginaAtual, $method))
+{
     $method = 'pagina_erro';
 
+    if($config['URI'][0] == 403)
+        $parametro = 403;
+}
 
-$paginaAtual->$method();
+$paginaAtual->$method($parametro);

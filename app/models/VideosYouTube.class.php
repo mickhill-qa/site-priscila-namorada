@@ -29,10 +29,10 @@ class VideosYouTube
                 'texto'  => 'Esse é aquele que te mandei por último no antigo site - Story of My Life.'
             ),
             '3' => array(
-                'titulo' => 'Video de teste',
-                'data'   => '25/09/1995',
-                'link'   => 'https://www.youtube.com/watch?v=yET4p-r2TI8',
-                'texto'  => 'Esse é aquele que te mandei por último no antigo site - Story of My Life.'
+                'titulo' => 'Discurso da Conferencia',
+                'data'   => '31/10/2014',
+                'link'   => 'https://www.youtube.com/watch?v=4mjOjr1eUFk',
+                'texto'  => 'Esse foi o melhor discurso da conferencia de outubro desse ano, na minha opinião.'
             )
         );
     }

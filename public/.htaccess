@@ -1,5 +1,5 @@
 # Definindo Alias
-RewriteBase /sisteraraujo/
+RewriteBase /
 
 # Ativando modo de reescrita na url
 RewriteEngine on

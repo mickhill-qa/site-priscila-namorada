@@ -12,6 +12,7 @@ abstract class Site
 {
     private   $site_config;
     protected $site_url;
+    protected $site_url_index;
     protected $site_uri;
     protected $site_titulo;
     protected $site_session_nome;
@@ -24,6 +25,7 @@ abstract class Site
     protected $site_caminhos;
     protected $site_cabecalho;
     protected $site_rodape;
+    protected $site_titulo_erros;
 
     public function __construct()
     {
@@ -31,6 +33,7 @@ abstract class Site
 
         $this->site_config          = $config; unset($config);
         $this->site_url             = $this->site_url();
+        $this->site_url_index       = $this->site_config['EXIBIR_INDEX_URL'];
         $this->site_uri             = $this->site_config['URI'];
         $this->site_titulo          = $this->site_config['TITULO_APLICACAO'];
         $this->site_session_nome    = $this->site_config['SLUG_SESSION'];
@@ -43,14 +46,21 @@ abstract class Site
         $this->site_caminhos        = $this->site_config['CAMINHOS'];
         $this->site_cabecalho       = $this->site_config['HTML_HEAD'];
         $this->site_rodape          = $this->site_config['HTML_FOOTER'];
+        $this->site_titulo_erros    = $this->site_config['TITULO_ERRO'];
     }
-    
+
+
+
+
     protected function site_url($uri = '')
     {
         return $this->site_config['URL_BASE'] . $uri;
     }
-    
-    protected function site_model($model = '', $parametros = '')
+
+
+
+
+    protected function site_model($model = '', $par1 = '', $par2 = '', $par3 = '')
     {
         $arquivo = $this->site_caminhos['APLICACAO'] . 'models/' . $model . '.class.php';
         
@@ -63,10 +73,13 @@ abstract class Site
         else
         {
             include_once($arquivo);
-            return new $model($parametros);
+            return new $model($par1, $par2, $par3);
         }
     }
-    
+
+
+
+
     protected function site_session()
     {
         session_name($this->site_session_nome);
