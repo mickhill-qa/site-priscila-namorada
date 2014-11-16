@@ -31,7 +31,7 @@ class ArquivosMickHill
 
             while($arquivo = $Pasta->read())
             {
-                if($arquivo == '.' || $arquivo == '..' || $arquivo == 'index.html')
+                if($arquivo == '.' || $arquivo == '..' || $arquivo == 'index.html' || $arquivo == '.DS_Store')
                     continue;
 
                 if(is_dir($PastaListar . $arquivo)) 
@@ -40,6 +40,8 @@ class ArquivosMickHill
                 $conteudo[] = $this->url_padrao_site . $subPasta . $arquivo;
             }
             $Pasta->close();
+            
+            asort($conteudo);
 
             return $conteudo;
         }
