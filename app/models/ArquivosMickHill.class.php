@@ -15,7 +15,7 @@ class ArquivosMickHill
     public function listar_pasta($subPasta = '')
     {
         $subPasta      = $this->pasta_arquivos . $subPasta;
-        $PastaPublic   = $this->pasta_public_html . '/';
+        $PastaPublic   = $this->pasta_public_html;
         $PastaListar   = $PastaPublic . $subPasta;
         
         if($subPasta == $this->pasta_arquivos)
@@ -41,7 +41,8 @@ class ArquivosMickHill
             }
             $Pasta->close();
             
-            asort($conteudo);
+            if($conteudo)
+                asort($conteudo);
 
             return $conteudo;
         }

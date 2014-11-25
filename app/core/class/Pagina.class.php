@@ -112,7 +112,7 @@ abstract class Pagina extends Site
         elseif($viewErro == 403)
             $titulo = $this->site_titulo_erros['403'];
         
-        $arquivo = $this->site_caminhos['APLICACAO'] . 'views/erros/' . $viewErro . $this->site_extencoes['Views'];
+        $arquivo = $this->site_caminhos['VIEWS'] . 'erros/' . $viewErro . $this->site_extencoes['Views'];
         
         if (file_exists($arquivo))
         {
@@ -146,7 +146,7 @@ abstract class Pagina extends Site
         }
 
         $view      = implode('/', $view);
-        $arquivo   = $this->site_caminhos['APLICACAO'] . 'views/' . $view .  $this->site_extencoes['Views'];
+        $arquivo   = $this->site_caminhos['VIEWS'] . $view .  $this->site_extencoes['Views'];
 
         if (file_exists($arquivo))
             return require_once $arquivo;

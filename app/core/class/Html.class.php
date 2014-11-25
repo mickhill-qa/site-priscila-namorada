@@ -41,7 +41,7 @@ class Html
     public function favicon($arquivo = '')
     {
         $this->html_favicon = '
-        <link type="image/x-icon" rel="icon" href="'. $arquivo .'" />';
+        <link   type="image/x-icon"    href="' . $arquivo . '" rel="icon" />';
     }
     
     public function css($arquivo = "")
@@ -83,7 +83,12 @@ class Html
         echo '<!doctype html>
 <html lang="pt-br">
     <head>
-        <meta charset="UTF-8" />'
+        <meta charset="UTF-8" />
+        
+        <!-- Padão bootstrap -->
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        '
         .$this->html_title
         .$this->html_favicon
         .$this->html_keywords

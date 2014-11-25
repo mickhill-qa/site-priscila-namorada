@@ -1,11 +1,20 @@
 <?php
+/*
+ *-------------------------------------------------------
+ *              Simple MVC - Mick Hill
+ *-------------------------------------------------------
+ * 
+ *  Helper padrão da aplicação...
+ *
+ */
 
+// Definições de dados padrões do framework.
 $config['TITULO_APLICACAO']            = default_valida_valor(@$config['TITULO_APLICACAO'],           'Simple MVC');
 $config['SLUG_SESSION']                = default_valida_valor(@$config['SLUG_SESSION'],               'simple-mvc');
 $config['AUTOR_APLICACAO']             = default_valida_valor(@$config['AUTOR_APLICACAO'],            'Mick Hill');
 $config['CONTATO_AUTOR']               = default_valida_valor(@$config['CONTATO_AUTOR'],              'mickhill@hotmail.com.br');
 $config['PAGINA_INICIAL']              = default_valida_valor(@$config['PAGINA_INICIAL'],             'index');
-$config['VERSAO_APLICACAO']            = default_valida_valor(@$config['VERSAO_APLICACAO'],           'v1.0.1');
+$config['VERSAO_APLICACAO']            = default_valida_valor(@$config['VERSAO_APLICACAO'],           'v2.0');
 $config['COPYRIGHT_APLICACAO']         = default_valida_valor(@$config['COPYRIGHT_APLICACAO'],        '©Código aberto');
 $config['TITULO_ERRO']['404']          = default_valida_valor(@$config['TITULO_ERRO']['404'],         'Error 404 (Not Found)!!!');
 $config['TITULO_ERRO']['403']          = default_valida_valor(@$config['TITULO_ERRO']['403'],         'Error 403 (Forbidden)!!!');
@@ -17,7 +26,15 @@ $config['EXTENCOES']['favicon']        = default_valida_valor(@$config['EXTENCOE
 
 
 
+// Definição de caminhos padrões do framework.
+$config['CAMINHOS']['MODELS']      = $config['CAMINHOS']['APLICACAO'] . "models/";
+$config['CAMINHOS']['VIEWS']       = $config['CAMINHOS']['APLICACAO'] . "views/";
+$config['CAMINHOS']['CONTROLLERS'] = $config['CAMINHOS']['APLICACAO'] . "controllers/";
 
+
+
+
+// Definição de URL Dinámica.
 if ($config['URL_BASE']['URL_DINAMICA'] == true)
 {
     if (isset($config['URL_BASE']['DOMINIO']) && (strlen($config['URL_BASE']['DOMINIO']) !== 0))
@@ -40,14 +57,14 @@ else
 
 
 
+
+// Funções de auxilio(helpers) padão do framework.
 function default_trata_uri($string, $sep = '')
 {
     $string = explode('-', $string);
     
     for($i = 0; $i < count($string); $i++)
-    {
         $string[$i] = ucfirst($string[$i]);
-    }
     
     $string = implode($sep, $string);
     
@@ -69,6 +86,8 @@ function default_debug($var)
 
 
 
+
+// Exibir configurações padrão do sistema.
 if ($config['EXIBIR_CONFIG_PADRAO'])
 {
     default_debug($config);

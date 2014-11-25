@@ -62,7 +62,7 @@ abstract class Site
 
     protected function site_model($model = '', $par1 = '', $par2 = '', $par3 = '')
     {
-        $arquivo = $this->site_caminhos['APLICACAO'] . 'models/' . $model . '.class.php';
+        $arquivo = $this->site_caminhos['MODELS'] . $model . '.class.php';
         
         if ($model == '')
             exit('Erro!<br />Passe o nome do "model" no paramentro sem a extenção.');

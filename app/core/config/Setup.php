@@ -13,7 +13,7 @@ $config['SLUG_SESSION']                = 'sister-araujo';
 $config['AUTOR_APLICACAO']             = '';
 $config['CONTATO_AUTOR']               = '';
 $config['PAGINA_INICIAL']              = '';
-$config['VERSAO_APLICACAO']            = 'v2.0.1 RC2';
+$config['VERSAO_APLICACAO']            = 'v2.0.2 RC2';
 $config['COPYRIGHT_APLICACAO']         = '';
 
 $config['TITULO_ERRO']['404']          = 'Oops! 404 Not Found';

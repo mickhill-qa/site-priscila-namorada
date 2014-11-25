@@ -8,7 +8,7 @@
  *
  */
 
-require_once $config['CAMINHOS']['APLICACAO'] . 'core/config/Setup.php';
+require_once $config['CAMINHOS']['FRAMEWORK'] . 'config/Setup.php';
 
 while (current($config['AUTOLOAD']))
 {
@@ -19,7 +19,7 @@ while (current($config['AUTOLOAD']))
     {
         foreach ($config['AUTOLOAD'][$pasta] as $nomeArquivo)
         {
-            $arquivo = $config['CAMINHOS']['APLICACAO'] . 'core/'. $pasta .'/'. $nomeArquivo .'.'. $extencao .'.php';
+            $arquivo = $config['CAMINHOS']['FRAMEWORK'] . $pasta .'/'. $nomeArquivo .'.'. $extencao .'.php';
             
             if(file_exists($arquivo))
                 require_once $arquivo;
@@ -31,7 +31,7 @@ while (current($config['AUTOLOAD']))
     next($config['AUTOLOAD']);
 }
 
-require_once $config['CAMINHOS']['APLICACAO'] . 'core/config/Controller.php';
+require_once $config['CAMINHOS']['FRAMEWORK'] . 'config/Controller.php';
 
 $config['URI']  = isset($_GET['uri']) ? $_GET['uri'] : $config['PAGINA_INICIAL'];
 $config['URI'] .= '/';
@@ -39,7 +39,7 @@ $config['URI']  = explode("/", $config['URI']);
 $config['URI']  = array_filter($config['URI']);
 $controller     = default_trata_uri($config['URI'][0] . 'Controller');
 $method         = default_trata_uri($config['URI'][1] = ($config['URI'][1] == null ? 'index' : $config['URI'][1]));
-$pagina         = $config['CAMINHOS']['APLICACAO'] . "controllers/" . $controller . $config['EXTENCOES']['Controllers'];
+$pagina         = $config['CAMINHOS']['CONTROLLERS'] . $controller . $config['EXTENCOES']['Controllers'];
 
 
 if (file_exists($pagina))
