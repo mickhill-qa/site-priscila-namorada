@@ -7,7 +7,7 @@
 <?php
     if ($this->links_lateral):
         foreach($this->links_lateral as $nome => $link):
-            if ($link == $this->pagina_atual) continue;
+            if ($link.'/' == $this->pagina_atual || $link == $this->pagina_atual) continue;
 ?>
                     <li><a href="<?php echo $link; ?>"><?php echo $nome; ?></a></li>
 <?php
