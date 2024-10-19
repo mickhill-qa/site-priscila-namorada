@@ -27,7 +27,7 @@ $config['HTML_HEAD']['js']             = array('jquery-1.10.2.min', 'bootstrap.m
 $config['HTML_FOOTER']['js']           = array('sisteraraujo');
 
 $config['URL_BASE']['URL_DINAMICA']    = true;
-$config['URL_BASE']['ALIAS']           = '';
+$config['URL_BASE']['ALIAS']           = 'site-priscila-namorada/public';
 $config['URL_BASE']['DOMINIO']         = '';
 
 $config['AUTOLOAD']['helper']          = array('default');

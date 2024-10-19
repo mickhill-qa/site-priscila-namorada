@@ -40,8 +40,12 @@ if ($config['URL_BASE']['URL_DINAMICA'] == true)
     if (isset($config['URL_BASE']['DOMINIO']) && (strlen($config['URL_BASE']['DOMINIO']) !== 0))
         exit('Para "URL_BASE dinámica" deixe o domínio em branco.<br>Setup.php');
 
-    else if (($_SERVER['SERVER_ADDR'] == '127.0.0.1') || ($_SERVER['SERVER_ADDR'] == '::1'))
+    else if (
+        (($_SERVER['SERVER_ADDR'] == '127.0.0.1') || ($_SERVER['SERVER_ADDR'] == '::1')) ||
+        (isset($config['URL_BASE']['ALIAS']) && (strlen($config['URL_BASE']['ALIAS']) !== 0))
+    ) {
         $config['URL_BASE'] = 'http://' . $_SERVER['SERVER_NAME'] . '/' . $config['URL_BASE']['ALIAS'] = (($config['URL_BASE']['ALIAS'] == NULL || $config['URL_BASE']['ALIAS'] == '') ? '' : $config['URL_BASE']['ALIAS'] . '/');
+    }
 
     else
         $config['URL_BASE'] = 'http://' . $_SERVER['SERVER_NAME'] . '/';
