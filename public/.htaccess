@@ -1,5 +1,5 @@
 # Definindo Alias
-RewriteBase /site-priscila-namorada/public/
+RewriteBase /
 
 # Ativando modo de reescrita na url
 RewriteEngine on
